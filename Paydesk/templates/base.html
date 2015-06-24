@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Paydesk - {% block title %} Home {% endblock %}</title>
+
+    {% load staticfiles %}
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/3-col-portfolio.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div class="container">
+
+    {% block header %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <img class="img-responsive" src="{% static 'image/4squarelogo1.fw.png' %}" alt="" style="float: left;" >
+                {% if user.is_authenticated %}
+            <h3 style="text-align: right;">
+                Welcome {{user.first_name}}
+            </h3>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+    <!-- Error messages row -->
+    <div class="row">
+        {% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} class="{{ message.tags }}" {% endif %} role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    {% block content%}
+
+    {% endblock %}
+    <br> &nbsp;
+    <br> &nbsp;
+    <br> &nbsp;
+    <br> &nbsp;
+</div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block scripts %}
+
+{% endblock %}
+
+</body>
+
+</html>

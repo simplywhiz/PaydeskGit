@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+
+{% block title %} First time member {% endblock %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- Projects Row -->
+<div class="row">
+    <div class="red_hr1">
+            <h4>Member Sign Up</h4>
+        </div>
+    <form method="post" action="" role="form" class="form-horizontal" id="registerForm">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>First Name *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{form.first_name.errors}}
+                {{form.first_name}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Middle Name</h4>
+            </div>
+            <div class="col-sm-5">
+                {{user_detail_form.middle_name.errors}}
+                {{user_detail_form.middle_name}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Last Name *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{form.last_name.errors}}
+                {{form.last_name}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>hone Number *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{user_detail_form.phone_number.errors}}
+                {{user_detail_form.phone_number}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>E Mail *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{form.email.errors}}
+                {{form.email}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Membership #</h4>
+            </div>
+            <div class="col-sm-5">
+                {{user_detail_form.membership_number.errors}}
+                {{user_detail_form.membership_number}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>PIN *(4 Digit)</h4>
+            </div>
+            <div class="col-sm-5">
+                {{user_detail_form.pin.errors}}
+                {{user_detail_form.pin}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Security Question *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{user_detail_form.security_question.errors}}
+                {{user_detail_form.security_question}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Security Answer *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{user_detail_form.security_answer.errors}}
+                {{user_detail_form.security_answer}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Create Password *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{form.password1.errors}}
+                {{form.password1}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <h4>Confirm Password *</h4>
+            </div>
+            <div class="col-sm-5">
+                {{form.password2.errors}}
+                {{form.password2}}
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        <div class="red_hr1">
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-10">
+                <input type="submit" value="SIGN UP" name="submit" class="btn red-bordered-button">
+                <input type="button" value="CANCEL SIGN UP" name="cancel" class="btn red-bordered-button"
+                       onclick="javascript: window.location = '{% url 'give' %}'">
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div class="row">
+    <p>
+        Note: Please note that all * is compulsory. PIN, Security Question and Answer are for your protection.
+        Enter the security question with answer you can remember but keep the pin to yourself.
+    </p>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+
+<script type="text/javascript">
+// Form validation script
+    $('#registerForm').validate({
+        rules: {
+            'uf-first_name': "required",
+            'uf-last_name': "required",
+            'ud-phone_number': {
+                required: true,
+                digits: true,
+                rangelength: [11, 15],
+            },
+            'uf-email': {
+                required: true,
+                email: true,
+            },
+            'ud-pin': {
+                required: true,
+                digits: true,
+                minlength: 4,
+                maxlength: 4,
+            },
+            'ud-security_question': "required",
+            'ud-security_answer': "required",
+            'uf-password1': {
+                required: true,
+                minlength: 5
+            },
+            'uf-password2': {
+                required: true,
+                equalTo: "#id_uf-password1"
+            },
+        },
+
+        messages: {
+            'uf-first_name': "Please enter your first name",
+            'uf-last_name': "Please enter your last name",
+            'ud-phone_number': {
+                required: "Enter your Phone number",
+                rangelength: "Enter your 11-15 digits phone number.",
+            },
+            'uf-email': {
+                required: "Enter your functional email address",
+                email: "email address in the format name@domain.com",
+            },
+            'ud-pin': {
+                required: "Choose a 4 digit pin",
+                minlength: "4 characters required",
+                maxlength: "4 characters required",
+            },
+            'ud-security_question': "Choose a security question",
+            'ud-security_answer': "Provide answer to your security question.",
+            'uf-password1': {
+                required: "Choose a password",
+                minlength: "Minimum 5 characters long."
+            },
+            'uf-password2': {
+                required: "Repeat the selected password",
+                equalTo: "The passwords do not match"
+            },
+        }
+    });
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Give online {% endblock %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+        <!-- Projects Row -->
+        <div class="row red_border">
+            <div class="col-sm-4 portfolio-item vertical_seperator">
+                <h3>
+                    <a href="{% url 'payment:receive_payment'%}">Guest <br> Donation</a> <br>&nbsp;
+                </h3>
+            </div>
+            <div class="col-sm-4 portfolio-item vertical_seperator">
+                <h3>
+                    <a href="{% url 'account:login'%}">Members<br> Give</a> <br>&nbsp;
+                </h3>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <h3>
+                    <a href="{% url 'account:register'%}">First Time <br> Member?<br><small>sign up</small></a>
+                </h3>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="{% static 'image/secureby.fw.png' %}">
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+{% endblock %}

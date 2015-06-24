@@ -1,0 +1,123 @@
+/*!
+ * Start Bootstrap - 3 Col Portfolio HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 20px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    color: #b20000;
+    background-image: url('../image/background-16.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.portfolio-item {
+    text-align: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    margin: 5px 50px 30px 0;
+    float: right;
+}
+
+.form-control{
+    border: 1px solid #b20000;
+    border-radius: 0;
+}
+
+a {
+ color: #b20000;
+}
+
+.home_page_header{
+    border-bottom: none;
+    margin: 20px 0 100px 0;
+}
+
+.home_image{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.red_border{
+    border: 1px solid #b20000;
+    margin: 50px 20px 20px 20px;
+    padding: 30px 0;
+}
+
+/* bootstrap overrides */
+
+.form-control:focus {
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.red_hr1{
+    border-bottom: 1px solid #b20000;
+    margin-bottom: 10px;
+}
+
+.red_hr2{
+    border-bottom: 2px solid #b20000;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .vertical_seperator {
+    border-right: 1px solid #b20000;
+    }
+
+  .form-horizontal .control-label {
+    text-align: left;
+  }
+
+  .page-header {
+    padding-bottom: 9.5px;
+    margin: 5px 0px 10px 0;
+    border-bottom: 1px solid transparent;
+    }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    /* remove the spinners from the numeric boxes */
+  height: 0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  height: 24px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+.vertical_seperator {
+
+}
+
+.red-bordered-button {
+  color: #b20000;
+  background-color: transparent;
+  border-color: #b20000;
+}
+
+ul#id_payment_method {
+    list-style-type: none;
+}
+
+ul#id_payment_method li label {
+    display: block;
+    float: left;
+    margin: 0 15px;
+}
+
+#id_payment_method .error{
+    /* style for jquery validate error message for payment method */
+}
